@@ -23,17 +23,20 @@
 
                     <!-- Sidebar Header-->
                     <div class="sidebar-header">
+
                         <div class="user">
                             <div class="img-container">
                                 <img src="img/avatar_io.jpg" alt="profile pic">
                             </div>
                             <p class="name">Sofia</p>
                         </div>
+
                         <div class="icons">
                             <i class="fas fa-circle-notch"></i>
                             <i class="fas fa-comment-alt"></i>
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
+
                     </div>
                     <!-- /Sidebar Header-->
 
@@ -63,7 +66,7 @@
                                     <div class="img-container">
                                         <img :src="'img/avatar'+item.avatar+'.jpg'" :alt="item.name + ' pfp'">
                                     </div>
-                                    <div class="text">
+                                    <div class="name-message">
                                         <p class="name">{{item.name}}</p>
                                         <p class="last-message">
                                             {{item.messages[item.messages.length - 1].message}}
@@ -85,7 +88,46 @@
     
                 <!-- Main -->
                 <main>
-    
+                    
+                    <!-- Main Header -->
+                    <div class="main-header">
+
+                        <div class="selected-contact">
+                            <div class="img-container">
+                                <img :src="'img/avatar'+contacts[current].avatar+'.jpg'" :alt="contacts[current].name +' pfp'">
+                            </div>
+                            <div class="name-access">
+                                <p class="name">{{contacts[current].name}}</p>
+                                <p class="last-access">Ultimo accesso {{contacts[current].messages[contacts[current].messages.length-1].date}}</p>
+                            </div>
+                        </div>
+
+                        <div class="icons">
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-paperclip"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+
+                    </div>
+                    <!-- /Main Header -->
+
+                    <!-- Main Main -->
+                    <div class="main-main">
+                        <div v-for="message in contacts[current].messages" class="text-message" :class="{sent : message.status === 'sent'}">
+                            <p class="message">{{message.message}}</p>
+                            <p class="date">{{message.date.split(" ")[1]}}</p>
+                        </div>
+                    </div>
+                    <!-- /Main Main -->
+
+                    <!-- Main Footer -->
+                    <div class="main-footer">
+                        <i class="far fa-smile"></i>
+                        <input type="text" placeholder="Scrivi un messaggio">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <!-- /Main Footer -->
+
                 </main>
                 <!-- /Main -->
     

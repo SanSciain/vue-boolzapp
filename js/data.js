@@ -165,6 +165,7 @@ const app = new Vue({
                 ],
             }
         ],
+        current: 0,
     }
 })
 

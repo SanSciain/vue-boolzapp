@@ -63,9 +63,10 @@ p.name {
     align-items: center;
 }
 
-.user .img-container {
+.img-container {
     border-radius: 50%;
     width: 40px;
+    height: 40px;
     overflow: hidden;
 }
 
@@ -167,22 +168,22 @@ ul {
 li {
     display: flex;
     justify-content: space-between;
-    padding: .4rem;
+    padding: .4rem 1rem;
 }
 
-.contact {
+li .contact {
     display: flex;
 }
 
-.text {
+.name-message {
     margin-left: 1rem;
 }
 
-.text .name{
+.name-message .name{
     font-weight: bold;
 }
 
-.text .last-message{
+.name-message .last-message{
     color: grey;
     margin-top: .3rem;
 }
@@ -193,8 +194,107 @@ li {
     font-size: .8rem;
 }
 
-.img-container {
-    border-radius: 50%;
+.contact .img-container {
     width: 50px;
-    overflow: hidden;
+    height: 50px;
+}
+
+/* Main */
+main {
+    width: 75%;
+    height: 100%;
+}
+
+/* Main Header */
+.main-header {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eaeaea;
+    padding: 0 1rem;
+    border-left: 1px solid lightgray;
+}
+
+.selected-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-access {
+    margin-left: 1rem;
+}
+
+.name-access .name {
+    font-weight: bold;
+}
+
+.name-access .last-access {
+    color: grey;
+}
+
+/* Main Main */
+.main-main {
+    background-image: url("../img/mine.jpg");
+    height: calc(100% - 120px);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.text-message {
+    max-width: 60%;
+    width: fit-content;
+    background-color: white;
+    border-radius: 10px;
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-message.sent{
+    background-color: #d5f9ba;
+    align-self: flex-end;
+}
+
+.text-message .message{
+    padding: 1.5rem 2rem;
+}
+
+.text-message .date{
+    align-self: flex-end;
+    font-size: .7rem;
+    color:lightgray;
+    padding: 0.5rem;
+}
+
+
+
+
+/* Main Footer */
+.main-footer {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #f3eeea;
+    padding: 0 1rem;
+    border-left: 1px solid lightgray;
+}
+
+.main-footer i {
+    color: #6b7376;
+    font-size: 2rem;
+}
+
+.main-footer input {
+    height: 55%;
+    width: 80%;
+    border: none;
+    border-radius: 10px;
+    padding: 2rem;
 }
