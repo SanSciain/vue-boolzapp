@@ -1,0 +1,75 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Common */
+html {
+    font-family: 'Lato', sans-serif;
+    font-size: 62.5%;
+}
+
+img {
+    width: 100%;
+}
+
+p.name {
+    font-size: 1.2rem;
+}
+
+/* Container and Backgorund */
+.background {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(#009688 15%, #dadbd4 15%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 70%;
+    height: 95vh;
+    display: flex;
+}
+
+
+/* Sidebar */
+.sidebar {
+    width: 35%;
+    height: 100%;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eaeaea;
+    padding: 0 1rem;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.user .img-container {
+    border-radius: 50%;
+    width: 40px;
+    overflow: hidden;
+}
+
+.user .name {
+    margin-left: 1rem;
+}
+
+.icons i{
+    color: #b1b1b1;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
