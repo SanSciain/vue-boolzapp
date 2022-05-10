@@ -40,6 +40,43 @@
                     <!-- Sidebar Main-->
                     <div class="sidebar-main">
 
+                        <div class="notifications">
+                            <div class="icon-container">
+                                <i class="fas fa-bell-slash"></i>
+                            </div>
+                            <div class="text">
+                                <p>Ricevi notifiche di nuovi messaggi</p>
+                                <a href="">Attiva notifiche desktop</a>
+                            </div>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <label for="search">
+                                <i class="fas fa-search"></i>
+                            </label>
+                            <input id="search" type="text" placeholder="Cerca o inizia una nuova chat">
+                        </div>
+
+                        <ul>
+                            <li v-for="item in contacts">
+                                <div class="contact">
+                                    <div class="img-container">
+                                        <img :src="'img/avatar'+item.avatar+'.jpg'" :alt="item.name + ' pfp'">
+                                    </div>
+                                    <div class="text">
+                                        <p class="name">{{item.name}}</p>
+                                        <p class="last-message">
+                                            {{item.messages[item.messages.length - 1].message}}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="time">
+                                    <span class="last-hour">{{item.messages[item.messages.length - 1].date.split(" ")[1].split(":")[0] }}:</span>
+                                    <span class="last-minute">{{item.messages[item.messages.length - 1].date.split(" ")[1].split(":")[1] }}</span>
+                                </div>
+                            </li>
+                        </ul>
+
                     </div>
                     <!-- /Sidebar Main-->
 
