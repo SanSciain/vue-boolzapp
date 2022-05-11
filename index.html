@@ -57,11 +57,11 @@
                             <label for="search">
                                 <i class="fas fa-search"></i>
                             </label>
-                            <input id="search" type="text" placeholder="Cerca o inizia una nuova chat">
+                            <input id="search" type="text" placeholder="Cerca o inizia una nuova chat" v-model="search" @keyup="searchContact">
                         </div>
 
                         <ul>
-                            <li v-for="item in contacts">
+                            <li v-for="(item,index) in contacts" :class="{'d-none' : !(item.visible), 'contact--active' : index===current}" @click="selectContact(index)">
                                 <div class="contact">
                                     <div class="img-container">
                                         <img :src="'img/avatar'+item.avatar+'.jpg'" :alt="item.name + ' pfp'">
@@ -123,7 +123,7 @@
                     <!-- Main Footer -->
                     <div class="main-footer">
                         <i class="far fa-smile"></i>
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendAMessage">
                         <i class="fas fa-microphone"></i>
                     </div>
                     <!-- /Main Footer -->
@@ -136,6 +136,7 @@
 
     </div>
     
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="js/data.js"></script>
 </body>
 </html>

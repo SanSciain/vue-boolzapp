@@ -166,6 +166,43 @@ const app = new Vue({
             }
         ],
         current: 0,
+        newMessage:"",
+        search:"",
+    },
+    methods: {
+        selectContact: function(index){
+            this.current=index;
+        },
+        sendAMessage: function(){
+            const newMessObj = {
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                message: this.newMessage,
+                status: 'sent'
+            };
+            this.contacts[this.current].messages.push(newMessObj);
+            this.newMessage="";
+            this.replyMessage();
+        },
+        replyMessage: function(){
+            const newMessObj = {
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                message: "Ok",
+                status: 'received'
+            };
+            const cow=this;
+            setTimeout(function(){
+                cow.contacts[cow.current].messages.push(newMessObj);
+            },1000);
+        },
+        searchContact: function(){
+            this.contacts.forEach(element => {
+                const name = element.name.toLowerCase();
+                const search = this.search.toLowerCase();
+                if(! name.includes(search) ){
+                    element.visible=false;
+                }
+            });
+        }
     }
 })
 

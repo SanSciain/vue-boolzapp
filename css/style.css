@@ -23,6 +23,17 @@ p.name {
     font-size: 1.2rem;
 }
 
+.img-container {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.d-none{
+    display: none;
+}
+
 /* Container and Backgorund */
 .background {
     width: 100%;
@@ -61,13 +72,6 @@ p.name {
 .user {
     display: flex;
     align-items: center;
-}
-
-.img-container {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    overflow: hidden;
 }
 
 .user .name {
@@ -167,15 +171,22 @@ ul {
 
 li {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     padding: .4rem 1rem;
 }
 
 li .contact {
+    width: 80%;
     display: flex;
 }
 
+.contact--active{
+    background-color: lightgray;
+}
+
 .name-message {
+    width: calc(100% - 40px - 2rem);
     margin-left: 1rem;
 }
 
@@ -186,6 +197,10 @@ li .contact {
 .name-message .last-message{
     color: grey;
     margin-top: .3rem;
+    white-space: nowrap;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .time .last-hour,
@@ -242,6 +257,7 @@ main {
     display: flex;
     flex-direction: column;
     padding: 2rem;
+    overflow-y: auto;
 }
 
 .text-message {
@@ -262,6 +278,8 @@ main {
 
 .text-message .message{
     padding: 1.5rem 2rem;
+    word-wrap: break-word;
+    max-width: 90%;
 }
 
 .text-message .date{
