@@ -225,7 +225,17 @@ const app = new Vue({
             }
         },
         deleteMessage(index){
-            this.contacts[this.current].messages.slice(index,1);
+            if (this.contacts[this.current].messages.length === 1){
+                const emptyMessage={
+                    date:"",
+                    message:"non ci sono messaggi recenti",
+                    status:""
+                };
+                this.contacts[this.current].messages.splice(index,1, emptyMessage)
+            }
+            else{
+                this.contacts[this.current].messages.splice(index,1);
+            }
         }
     }
 })
