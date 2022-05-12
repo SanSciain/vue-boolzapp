@@ -74,8 +74,7 @@
                                     </div>
                                 </div>
                                 <div class="time">
-                                    <span class="last-hour">{{item.messages[item.messages.length - 1].date.split(" ")[1].split(":")[0] }}:</span>
-                                    <span class="last-minute">{{item.messages[item.messages.length - 1].date.split(" ")[1].split(":")[1] }}</span>
+                                    <span class="last-hour">{{hoursAndMinutes(item.messages[item.messages.length - 1].date)}}</span>
                                 </div>
                             </li>
                         </ul>
@@ -113,9 +112,16 @@
 
                     <!-- Main Main -->
                     <div class="main-main">
-                        <div v-for="message in contacts[current].messages" class="text-message" :class="{sent : message.status === 'sent'}">
+                        <div v-for="(message,index) in contacts[current].messages" class="text-message" :class="{sent : message.status === 'sent'}" v-on:click="(event)=>showInfo(event, index)">
                             <p class="message">{{message.message}}</p>
-                            <p class="date">{{message.date.split(" ")[1]}}</p>
+                            <div class="date-options">
+                                <i :class="{visible : flag.boolean && flag.position === index }" class="fas fa-chevron-down"></i>
+                                <div :class="{'d-none' : !(flag.boolean && flag.position === index) }" class="options">
+                                    <p class="info">Message Info</p>
+                                    <p @click="deleteMessage(index)" class="delete">Delete message</p>
+                                </div>
+                                <p class="date">{{hoursAndMinutes(message.date)}}</p>
+                            </div>
                         </div>
                     </div>
                     <!-- /Main Main -->
@@ -136,7 +142,9 @@
 
     </div>
     
+    
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.8.25/plugin/customParseFormat.js"></script>
     <script src="js/data.js"></script>
 </body>
 </html>

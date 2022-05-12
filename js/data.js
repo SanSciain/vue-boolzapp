@@ -1,3 +1,4 @@
+dayjs.extend(window.dayjs_plugin_customParseFormat);
 
 const app = new Vue({
     el: "#root",
@@ -168,6 +169,10 @@ const app = new Vue({
         current: 0,
         newMessage:"",
         search:"",
+        flag:{
+            boolean: false,
+            position: 0,
+        }
     },
     methods: {
         selectContact: function(index){
@@ -202,6 +207,25 @@ const app = new Vue({
                     element.visible=false;
                 }
             });
+        },
+        hoursAndMinutes(date){
+            const dateFormatted = dayjs(date,'DD/MM/YYYY HH:mm:ss');
+            const hm = dayjs(dateFormatted).format('HH:mm')
+            return hm;
+        },
+        showInfo(event,index){
+            if (event !== undefined){
+                if (this.flag.position === index){
+                    this.flag.boolean= !this.flag.boolean;
+                }
+                else{
+                    this.flag.boolean=true;
+                }
+                this.flag.position = index;
+            }
+        },
+        deleteMessage(index){
+            this.contacts[this.current].messages.slice(index,1);
         }
     }
 })

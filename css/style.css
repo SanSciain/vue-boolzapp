@@ -269,7 +269,27 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
+
+.text-message .options {
+    position: absolute;
+    top: 1.7rem;
+    right: .5rem;
+    background-color: white;
+    color: #979797;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+.text-message .options p{
+    padding: 1.5rem 1.5rem .75rem;
+}
+
+.text-message .options .delete{
+    padding: .75rem 1.5rem 1.5rem;
+}
+
 
 .text-message.sent{
     background-color: #d5f9ba;
@@ -282,7 +302,25 @@ main {
     max-width: 90%;
 }
 
-.text-message .date{
+.date-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.date-options i {
+    visibility: hidden;
+    align-self: flex-end;
+    font-size: .7rem;
+    color: gray;
+    padding: 0.5rem 1rem;
+}
+
+.date-options i.visible {
+    visibility: visible;
+}
+
+.date-options .date{
     align-self: flex-end;
     font-size: .7rem;
     color:lightgray;
