@@ -203,7 +203,9 @@ const app = new Vue({
             this.contacts.forEach(element => {
                 const name = element.name.toLowerCase();
                 const search = this.search.toLowerCase();
-                if(! name.includes(search) ){
+                if( name.includes(search) ){
+                    element.visible=true;
+                } else {
                     element.visible=false;
                 }
             });
